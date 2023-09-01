@@ -17,10 +17,9 @@ router.post('/', function(req , res){
   })
 });
 
-function generateRandomHexCode(){
-  let hexCode = "#"
-  while ( hexCode.length < 7){
-    hexCode += (Math.round( Math.random()*15)).toString(16)
-  }
-  return hexCode
-}
+  router.post('/random', function(req , res){
+    res.render('index', {
+      color: generateRandomHexCode(),
+      textColor: generateRandomHexCode()
+    })
+  });
